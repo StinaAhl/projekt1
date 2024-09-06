@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krukväxtmarknad</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Krukväxtmarknad</h1>
+    <p>Välkommen! Här kan du sälja och köpa sticklingar.</p>
+  </header>
+
+  <main>
+    <section id="upload-section">
+      <h2>Ladda upp din växt</h2>
+      <form id="plantForm">
+        <label for="plantName">Växtnamn:</label>
+        <input type="text" id="plantName" placeholder="Skriv växtens namn" required>
+        
+        <label for="plantPrice">Pris:</label>
+        <input type="number" id="plantPrice" placeholder="Ange pris i kronor" required>
+        
+        <label for="plantImage">Ladda upp bild:</label>
+        <input type="file" id="plantImage" accept="image/*" required>
+        
+        <button type="submit">Ladda upp</button>
+      </form>
+    </section>
+
+    <section id="plant-list">
+      <h2>Tillgängliga sticklingar</h2>
+      <div id="plantContainer"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

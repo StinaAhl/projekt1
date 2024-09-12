@@ -1,67 +1,43 @@
-// script.js
+document.getElementById('plant-select').addEventListener('change', function() {
+    const plantInfo = {
+        monstera: {
+            name: "Monstera",
+            description: "Monstera är en lättskött växt som trivs bäst i halvskugga och med jämn vattning.",
+            care: "Håll jorden fuktig, men inte blöt. Placera i ljus, men undvik direkt solljus."
+        },
+        pilea: {
+            name: "Pilea",
+            description: "Pilea kallas även för elefantöra och är en populär, lättskött växt.",
+            care: "Vattna när jorden börjar torka upp. Trivs bäst i ljusa lägen, men inte i direkt sol."
+        },
+        'aloe-vera': {
+            name: "Aloe Vera",
+            description: "Aloe Vera är känd för sina läkande egenskaper och trivs i soliga fönster.",
+            care: "Vattna sparsamt och låt jorden torka ut mellan vattningarna. Gillar mycket sol."
+        },
+        gullranka: {
+            name: "Gullranka",
+            description: "Gullranka är en robust växt som trivs i de flesta miljöer.",
+            care: "Vattna regelbundet och placera i indirekt ljus för bästa tillväxt."
+        },
+        kaktus: {
+            name: "Kaktus",
+            description: "Kaktusar är tåliga växter som kräver väldigt lite underhåll.",
+            care: "Vattna sparsamt och placera i direkt solljus. Perfekt för soliga fönster."
+        },
+        fiolfikus: {
+            name: "Fiolfikus",
+            description: "Fiolfikus är en elegant växt med stora blad, men kan vara lite krävande.",
+            care: "Håll jorden lätt fuktig och ge mycket ljus, men undvik direkt sol."
+        }
+    };
 
-// Funktion för att hantera uppladdning av växter
-document.getElementById('plantForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+    const selectedPlant = this.value;
+    const descriptionElement = document.getElementById('plant-description');
 
-  // Hämta värden från formuläret
-  const plantName = document.getElementById('plantName').value;
-  const plantPrice = document.getElementById('plantPrice').value;
-  const plantCare = document.getElementById('plantCare').value;
-  const plantImage = document.getElementById('plantImage').files[0];
-
-  // Skapa en ny läsare för att hantera bilduppladdning
-  const reader = new FileReader();
-  reader.readAsDataURL(plantImage);
-
-  reader.onload = function(e) {
-    const imageUrl = e.target.result;
-
-    // Skapa ett nytt kort för växten
-    const plantCard = document.createElement('div');
-    plantCard.classList.add('plant-card');
-
-    plantCard.innerHTML = `
-      <img src="${imageUrl}" alt="Bild på växt">
-      <h3>${plantName}</h3>
-      <p>Pris: ${plantPrice} kr</p>
-      <button class="more-info-btn">Läs mer</button>
-    `;
-
-    // Lägg till kortet i växtlistan
-    document.getElementById('plantContainer').appendChild(plantCard);
-
-    // Hantera klick på "Läs mer"-knappen
-    const moreInfoBtn = plantCard.querySelector('.more-info-btn');
-    moreInfoBtn.addEventListener('click', function() {
-      showModal(imageUrl, plantName, plantPrice, plantCare);
-    });
-
-    // Rensa formuläret
-    document.getElementById('plantForm').reset();
-  };
+    if (plantInfo[selectedPlant]) {
+        descriptionElement.textContent = `${plantInfo[selectedPlant].name}: ${plantInfo[selectedPlant].description} Skötselråd: ${plantInfo[selectedPlant].care}`;
+    } else {
+        descriptionElement.textContent = "Välj en växt från rullgardinsmenyn för att se information.";
+    }
 });
-
-// Funktion för att visa modalen
-function showModal(imageUrl, name, price, care) {
-  document.getElementById('modalPlantImage').src = imageUrl;
-  document.getElementById('modalPlantName').innerText = name;
-  document.getElementById('modalPlantPrice').innerText = `Pris: ${price} kr`;
-  document.getElementById('modalPlantCare').innerText = care;
-
-  // Visa modalen
-  const modal = document.getElementById('plantModal');
-  modal.style.display = 'block';
-}
-
-// Stäng modalen
-document.querySelector('.close').addEventListener('click', function() {
-  const modal = document.getElementById('plantModal');
-  modal.style.display = 'none';
-});
-
-// Stäng modalen om användaren klickar utanför innehållet
-window.onclick = function(event) {
-  const modal = document.getElementById('plantModal');
-  if (event.target === modal) {
-   

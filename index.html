@@ -1,68 +1,46 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krukväxtmarknad</title>
-  <link rel="stylesheet" href="style.css">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WC839XP2');</script>
-<!-- End Google Tag Manager -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Köp och Sälj Krukväxter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC839XP2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <header>
+        <h1>Köp och Sälj Krukväxter och Sticklingar</h1>
+    </header>
 
-  <header>
-    <h1>Krukväxtmarknad</h1>
-    <p>Välkommen! Här kan du sälja och köpa sticklingar.</p>
-  </header>
+    <main>
+        <section id="sell-section">
+            <h2>Sälj dina krukväxter</h2>
+            <form id="sell-form">
+                <label for="plant-name">Namn på växt:</label>
+                <input type="text" id="plant-name" name="plant-name" required>
+                <label for="plant-image">Ladda upp bild:</label>
+                <input type="file" id="plant-image" accept="image/*" required>
+                <button type="submit">Ladda upp</button>
+            </form>
+        </section>
 
-  <main>
-    <section id="upload-section">
-      <h2>Ladda upp din växt</h2>
-      <form id="plantForm">
-        <label for="plantName">Växtnamn:</label>
-        <input type="text" id="plantName" placeholder="Skriv växtens namn" required>
-        
-        <label for="plantPrice">Pris:</label>
-        <input type="number" id="plantPrice" placeholder="Ange pris i kronor" required>
-        
-        <label for="plantImage">Ladda upp bild:</label>
-        <input type="file" id="plantImage" accept="image/*" required>
-        
-        <label for="plantCare">Skötselråd:</label>
-        <textarea id="plantCare" placeholder="Ange skötselråd och tips" required></textarea>
+        <section id="dictionary-section">
+            <h2>Populära Krukväxter</h2>
+            <select id="plant-select">
+                <option value="">Välj en växt</option>
+                <option value="monstera">Monstera</option>
+                <option value="pilea">Pilea</option>
+                <option value="aloe-vera">Aloe Vera</option>
+                <option value="gullranka">Gullranka</option>
+                <option value="kaktus">Kaktus</option>
+                <option value="fiolfikus">Fiolfikus</option>
+            </select>
+            <div id="plant-info">
+                <h3>Växtinformation</h3>
+                <p id="plant-description">Välj en växt från rullgardinsmenyn för att se information.</p>
+            </div>
+        </section>
+    </main>
 
-        <button type="submit">Ladda upp bild</button>
-      </form>
-    </section>
-
-    <section id="plant-list">
-      <h2>Tillgängliga sticklingar</h2>
-      <div id="plantContainer"></div>
-    </section>
-  </main>
-
-  <!-- Modal popup för mer information -->
-  <div id="plantModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalPlantImage" src="" alt="Bild på växt">
-      <h3 id="modalPlantName"></h3>
-      <p id="modalPlantPrice"></p>
-      <p id="modalPlantCare"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -13,12 +13,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WC839XP2');</script>
 <!-- End Google Tag Manager -->
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC839XP2"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
   <header>
     <h1>Krukväxtmarknad</h1>
     <p>Välkommen! Här kan du sälja och köpa sticklingar.</p>
@@ -37,6 +39,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <label for="plantImage">Ladda upp bild:</label>
         <input type="file" id="plantImage" accept="image/*" required>
         
+        <label for="plantCare">Skötselråd:</label>
+        <textarea id="plantCare" placeholder="Ange skötselråd och tips" required></textarea>
+
         <button type="submit">Ladda upp bild</button>
       </form>
     </section>
@@ -46,6 +51,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div id="plantContainer"></div>
     </section>
   </main>
+
+  <!-- Modal popup för mer information -->
+  <div id="plantModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalPlantImage" src="" alt="Bild på växt">
+      <h3 id="modalPlantName"></h3>
+      <p id="modalPlantPrice"></p>
+      <p id="modalPlantCare"></p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -1,3 +1,34 @@
+document.getElementById('sell-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Förhindrar att sidan laddas om
+
+    // Hämta växtnamn, pris och bild
+    const plantName = document.getElementById('plant-name').value;
+    const plantPrice = document.getElementById('plant-price').value;
+    const plantImage = document.getElementById('plant-image').files[0];
+
+    // Kontrollera att alla fält är ifyllda
+    if (!plantName || !plantPrice || !plantImage) {
+        alert("Fyll i alla fält!");
+        return;
+    }
+
+    // Förhandsgranska namnet och priset
+    document.getElementById('preview-name').textContent = "Namn: " + plantName;
+    document.getElementById('preview-price').textContent = "Pris: " + plantPrice + " SEK";
+
+    // Förhandsgranska bilden
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const previewImage = document.getElementById('preview-image');
+        previewImage.src = e.target.result;
+        previewImage.style.display = 'block'; // Visa bilden
+    };
+    reader.readAsDataURL(plantImage);
+
+    // Rensa formuläret efter uppladdning
+    document.getElementById('sell-form').reset();
+});
+
 document.getElementById('plant-select').addEventListener('change', function() {
     const plantInfo = {
         monstera: {

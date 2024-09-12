@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Köp och Sälj Krukväxter</title>
     <link rel="stylesheet" href="style.css">
-
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -13,6 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WC839XP2');</script>
 <!-- End Google Tag Manager -->
+
 </head>
 <body>
 
@@ -30,10 +30,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <form id="sell-form">
                 <label for="plant-name">Namn på växt:</label>
                 <input type="text" id="plant-name" name="plant-name" required>
+
+                <label for="plant-price">Pris (SEK):</label>
+                <input type="number" id="plant-price" name="plant-price" required>
+
                 <label for="plant-image">Ladda upp bild:</label>
                 <input type="file" id="plant-image" accept="image/*" required>
+
                 <button type="submit">Ladda upp</button>
             </form>
+            <div id="preview">
+                <h3>Förhandsgranskning av uppladdad växt</h3>
+                <p id="preview-name"></p>
+                <p id="preview-price"></p>
+                <img id="preview-image" alt="Förhandsgranskning" style="display:none;" />
+            </div>
         </section>
 
         <section id="dictionary-section">
